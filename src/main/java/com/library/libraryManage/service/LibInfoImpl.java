@@ -1,6 +1,9 @@
 package com.library.libraryManage.service;
+import com.library.libraryManage.controller.Lib;
 import com.library.libraryManage.entity.Info;
+import com.library.libraryManage.repository.LibRepo;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +14,8 @@ import java.util.List;
 @Service
 public class LibInfoImpl implements LibInfo {
 
+    @Autowired
+    LibRepo librepo;
     public List<Info> info = new ArrayList<>();
 
     @PostConstruct
@@ -27,10 +32,7 @@ public class LibInfoImpl implements LibInfo {
 
     @Override
     public Info createBooks(Info Book1) {
-        if (info.add(Book1)) {
-            return Book1;
-        }
-        return null;
+        return librepo.save(Book1);
     }
 
     @Override

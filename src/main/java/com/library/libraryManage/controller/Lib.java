@@ -1,6 +1,7 @@
 package com.library.libraryManage.controller;
 
 import com.library.libraryManage.entity.Info;
+import com.library.libraryManage.repository.LibRepo;
 import com.library.libraryManage.service.LibInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,6 +14,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/lib")
 public class Lib {
+    @Autowired
+    LibRepo librepo;
 
     @Autowired
     private LibInfo libinfo;
@@ -24,7 +27,7 @@ public class Lib {
 
     @PostMapping("/createBooks")
     public Info createBooks(@RequestBody Info Book1){
-        return libinfo.createBooks(Book1);
+        return librepo.save(Book1);
     }
 
     @PostMapping("/updateBook")
