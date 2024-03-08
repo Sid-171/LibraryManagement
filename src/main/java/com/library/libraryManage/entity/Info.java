@@ -20,12 +20,9 @@ public class Info {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int BookId;
 
-
     private String BookName;
 
-
     private String Sections;
-
 
     private String AuthorName;
 
@@ -39,15 +36,11 @@ public class Info {
     }
 
     public List<Integer> getRelatedInfoList() {
-        // Deserialize the string to a list of integers
-        // Implement your deserialization logic here
         return new ArrayList<>();
     }
 
     public void setRelatedInfoList(List<Integer> relatedInfoList) {
-        // Serialize the list of integers to a string
-        // Implement your serialization logic here
-        this.relatedInfo = "Serialized String"; // Replace with actual serialization logic
+        this.relatedInfo = "Serialized String";
     }
 
 }
